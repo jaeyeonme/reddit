@@ -4,6 +4,7 @@ import com.jaeyeon.reddit.member.dto.MemberControllerRegistration
 import com.jaeyeon.reddit.member.dto.toDto
 import com.jaeyeon.reddit.member.service.MemberWriteService
 import jakarta.validation.Valid
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
