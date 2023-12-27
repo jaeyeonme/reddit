@@ -4,6 +4,7 @@ import com.jaeyeon.reddit.member.domain.entity.Member
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Size
+import org.springframework.security.crypto.password.PasswordEncoder
 
 class MemberServiceRegistration(
     @field:NotBlank(message = "사용자 이름은 필수입니다.")
@@ -20,8 +21,8 @@ class MemberServiceRegistration(
     val password: String,
 )
 
-fun MemberServiceRegistration.toEntity() = Member(
+fun MemberServiceRegistration.toEntity(encoder: PasswordEncoder) = Member(
     userName = userName,
     email = email,
-    password = password,
+    password = encoder.encode(password),
 )
